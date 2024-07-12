@@ -53,6 +53,12 @@ Glowstudio supports Markdown formatting across the platform, enabling the agent 
 
   </Step> 
 
+    <Step title="Step 4: Test and iterate"> 
+
+    Dont like the results? Experiment with different methods, either giving clear instructions or giving more freedom to the AI. See our [System prompt guide](/writing-content/text) for detailed instructions about prompting. 
+
+  </Step>
+
 </Steps> 
 
   
@@ -67,13 +73,18 @@ Here are some examples of how you can structure your initial prompts:
 
 <AccordionGroup> 
 
-  <Accordion title="Standard Greeting"> 
+  <Accordion title="Standard Greeting (without UI-engine)"> 
 
     ``` 
 
-    greet the user and create a table in markdown. use headings. 
+    Greet the user with a short message. 
+    Use markdown formatting.
 
     ``` 
+
+    <img style= {{borderRadius: '1.0rem'}} width="300" src="https://i.imgur.com/OXLXvuN.jpeg"/>
+
+> Model used: GPT4-o
 
   </Accordion> 
 
@@ -81,63 +92,45 @@ Here are some examples of how you can structure your initial prompts:
 
     ``` 
 
-    Welcome to **MagicMarks**! How can I assist you today?  
+    You will start by generating a welcome message in markdown with ### heading.
+    You will also generate three questions as buttons which the user might ask.  
 
-    - [ ] Learn more about our services 
-
-    - [ ] Get a personalized quote 
-
-    - [ ] Speak to an agent 
-
-     
-
-    ## Our Services 
-
-    | Service | Description | Price | 
-
-    |---------|-------------|-------| 
-
-    | Service 1 | Description 1 | $10 | 
-
-    | Service 2 | Description 2 | $20 | 
 
     ``` 
+  <img style= {{borderRadius: '1.0rem'}} width="300" src="https://i.imgur.com/yRAdThb.png"/>
 
+  > Model used: Claude 3.5 Sonnet
   </Accordion> 
 
-  <Accordion title="Visual and Interactive"> 
+  <Accordion title="The whole shabang (Warning: you might get rickrolled)"> 
 
     ``` 
 
-    Hi there! 👋 I'm here to help you with anything you need. 
+   Greet the user with "Hi there let's get you started!" and in the same message showcase to them that you can write organized markdown including lists, bold text, italic etc.
 
-  
+    Then use the showcase the following images in a carousel:
+    Images:
 
-    <Carousel> 
+   ![Image - Cool cat with glasses](https://i.ibb.co/7GZGLBh/a5oyaaaaaaaaaa.png)
+   ![Image - Lovely cat close up](https://i.ibb.co/kcTJppf/photo-2023-08-07-19-19-08.jpg)
+   ![Image - Guy petting the cat](https://i.ibb.co/cxbF1mX/photo-2023-11-28-04-33-00.jpg" alt="photo-2023-11-28-04-33-00)
 
-      <Card> 
+   Then show the infamous Rick Astely video in an iFrame after mentioning that you could render youtube videos just like you will do for this one:
+   <iframe width="786" height="442" src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="Rick Astley - Never Gonna Give You Up (Official Music Video)" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 
-        <img src="path/to/image1.png" alt="Image 1"/> 
+   Then generate some random buttons and a card with one button without image and a funny joke in it.
 
-        **Service 1** 
-
-        Description of service 1. 
-
-      </Card> 
-
-      <Card> 
-
-        <img src="path/to/image2.png" alt="Image 2"/> 
-
-        **Service 2** 
-
-        Description of service 2. 
-
-      </Card> 
-
-    </Carousel> 
+   As a final message tell the user to test out initial message prompt in glowstudio, cause its freaking awesome!
 
     ``` 
+    # 
+ 
+
+      <Tip>
+
+**This one you have to try out yourself**, give it  a shot using `Claude 3.5 Sonnet`
+
+</Tip>
 
   </Accordion> 
 
