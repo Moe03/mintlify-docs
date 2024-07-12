@@ -1,0 +1,47 @@
+---
+title: 'New file'
+description: 'Description of your new file.'
+---
+
+{
+  "$schema": "https://mintlify.com/schema.json",
+  "name": "documentation_glowstudio.ai",
+  "logo": {
+    "light": "/logo/light.svg",
+    "dark": "/logo/dark.svg"
+  },
+  "favicon": "/favicon.png",
+  "colors": {
+    "primary": "#0D9373",
+    "light": "#07C983",
+    "dark": "#0D9373"
+  },
+  "topbarLinks": [
+    {
+      "name": "Support",
+      "url": "mailto:support@yourcompany.com"
+    }
+  ],
+  "topbarCtaButton": {
+    "name": "Get Started",
+    "url": "https://yourapp.com"
+  },
+  "anchors": [
+    {
+      "name": "API Reference",
+      "icon": "code",
+      "url": "api-reference"
+    }
+  ],
+  "navigation": [
+    {
+      "group": "Getting Started",
+      "pages": ["introduction", "quickstart"]
+    }
+  ],
+  "footerSocials": {
+    "twitter": "https://twitter.com/yourcompany",
+    "github": "https://github.com/yourcompany",
+    "linkedin": "https://www.linkedin.com/company/yourcompany"
+  }
+}
