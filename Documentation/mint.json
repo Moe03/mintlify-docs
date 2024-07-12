@@ -12,9 +12,9 @@ description: 'Description of your new file.'
   },
   "favicon": "/favicon.png",
   "colors": {
-    "primary": "#0D9373",
+    "primary": "#2C2B28",
     "light": "#07C983",
-    "dark": "#0D9373"
+    "dark": "#2C2B28"
   },
   "topbarLinks": [
     {
