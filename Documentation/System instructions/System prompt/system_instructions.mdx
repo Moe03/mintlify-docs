@@ -1,14 +1,10 @@
 ---
-title: 'New file'
-description: 'Description of your new file.'
+title: 'Prompt Engineering Guide'
+description: 'Guide to effective prompt engineering in glowstudio'
 ---
 
 
-
-# Prompt Engineering Guide 
-
-  
-
+ 
 ## Overview 
 
   
@@ -161,25 +157,36 @@ Here are some formatting techniques:
 
   def example_function(): 
 
-      return "This is an example" 
+      return "This is an example" ```
+ 
 
   ``` 
-
-  ``` 
-
+#
   
 
-## Step-by-Step Guide to Crafting Effective Prompts 
+# Step-by-Step Guide to Crafting Effective Prompts 
 
-  
+#
 
 ### Step 1: Define the Tone and Objective 
 
-  
+  #
 
 Clearly articulate the AI's role, personality, and primary goals. This sets the foundation for all interactions. 
 
-  
+
+
+Glowstudio agents are masters of personality, capable of adopting a wide range of tones and styles to suit your needs. Whether you want a casual chatbot or a professional assistant.
+
+<Tip>
+Experiment with different personas to find the perfect fit for your audience or client. Try these fun options:
+- Set the tone to `slang` for a laid-back vibe
+- Request a `nerdy` and tech-savvy personality for in-depth discussions
+- Go for a `poetic` style for creative writing tasks
+</Tip>
+#
+
+Here are some tone setters you can try. Copy and paste them into the system instructions of your agent:  
 
 <CodeGroup> 
 
@@ -211,45 +218,56 @@ You're a laid-back virtual travel buddy with a knack for finding hidden gems in 
 
 </CodeGroup> 
 
-  
+  #
+### Step 2: `AI + Context = Truth`
+#
+AI thrives on context. Without it, the model would have no understanding of your situation, problem, or desired outcome. In GlowStudio.ai, context comes from three primary sources: system prompt, user input and the built-in knowledge base.
 
-### Step 2: Provide Context and Background 
+<Info>
+`Context is key`: Providing context through user input and leveraging a comprehensive knowledge base ensures that the AI's responses are relevant, accurate, and aligned with your specific use case or industry.
+</Info>
+#
+#### Why Context Matters
 
-  
+1. **Improved Accuracy**: Context helps the AI understand the nuances of your query.
+2. **Relevance**: With proper context, the AI tailors its answers to your specific situation.
+3. **Efficiency**: Clear context and a robust knowledge base reduce the need for follow-up questions.
+4. **Personalization**: The more context available, the more personalized the AI's responses become.
 
-Give the AI model relevant information about the domain it's operating in. This helps ground its responses in the appropriate context. 
+#### Providing Effective Context
 
-  
+- **Be Specific**: Clearly define the problem, audience, and desired outcome.
+- **Leverage the Knowledge Base**: GlowStudio.ai's built-in knowledge base provides a foundational layer of information, ensuring consistent and accurate responses without requiring repetitive input from users.
+- **Set Boundaries**: Inform the AI about any limitations or constraints.
+- **Define Roles**: If applicable, specify the role the AI should assume.
 
-<Info> 
+<Warning>
+While more context is generally better, focus on details that directly impact the task at hand. The knowledge base handles much of the background information automatically.
+</Warning>
 
-Providing context is crucial for ensuring that the AI's responses are relevant and aligned with the specific use case or industry. 
+**Example:**
 
-</Info> 
-
-  
-
-**Example:** 
-
+<CodeGroup>
 ```markdown 
+You are assisting customers of GreenTech Solutions, a company specializing in renewable energy products for homeowners. 
 
-You are assisting customers of GreenTech Solutions, a company specializing in renewable energy products for homeowners. GreenTech offers solar panels, wind turbines, and energy storage solutions. The company has been in business for 10 years and operates in the United States and Canada. 
+Use the knowledge base to access our product catalog, technical specifications, and FAQs. 
 
-``` 
-
-  
+Your role is to provide accurate information about our products, help customers choose the right solutions, and address common concerns about transitioning to renewable energy.
+```
+</CodeGroup>  
 
 ### Step 3: Implement Chain of Thought Reasoning 
-
+#
   
 
 Guide the AI to break down complex tasks into logical steps. This improves the accuracy and explainability of its responses. 
 
   
 
-<CodeGroup> 
+ 
 
-  
+ <CodeGroup> 
 
 ```markdown Problem-Solving 
 
@@ -286,11 +304,7 @@ When handling customer inquiries, use this approach:
 5. If applicable, offer additional helpful information or resources. 
 
 6. Ask if there's anything else you can assist with. 
-
 ``` 
-
-  
-
 </CodeGroup> 
 
   
@@ -523,11 +537,6 @@ Here's an example of a prompt that incorporates both advanced techniques:
 
 </Accordion> 
 
- 
-
-  
-
-</CodeGroup> 
 
   
 
