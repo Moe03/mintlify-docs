@@ -168,7 +168,7 @@ Here are some formatting techniques:
 
 #
 
-### Step 1: Define the Tone and Objective 
+## Step 1: Define the Tone and Objective 
 
   #
 
@@ -179,10 +179,10 @@ Clearly articulate the AI's role, personality, and primary goals. This sets the 
 Glowstudio agents are masters of personality, capable of adopting a wide range of tones and styles to suit your needs. Whether you want a casual chatbot or a professional assistant.
 
 <Tip>
-Experiment with different personas to find the perfect fit for your audience or client. Try these fun options:
-- Set the tone to `slang` for a laid-back vibe
-- Request a `nerdy` and tech-savvy personality for in-depth discussions
-- Go for a `poetic` style for creative writing tasks
+**Experiment** with different personas to find the perfect fit for your audience or client. Try these options:
+- Set the tone to `slang` for a laid-back and fun personality that will resonate with many customers.
+- Request a `nerdy` and tech-savvy personality for tech  blogs or e-commerce.
+- Go for a `poetic` style for a book store or blog.
 </Tip>
 #
 
@@ -219,45 +219,75 @@ You're a laid-back virtual travel buddy with a knack for finding hidden gems in 
 </CodeGroup> 
 
   #
-### Step 2: `AI + Context = Truth`
+## Step 2: AI + Context = Truth
 #
-AI thrives on context. Without it, the model would have no understanding of your situation, problem, or desired outcome. In GlowStudio.ai, context comes from three primary sources: system prompt, user input and the built-in knowledge base.
+AI thrives on context. Without it, the model would have no understanding of your situation, problem, or desired outcome. In GlowStudio, context comes from three primary sources: system prompt, user input and the built-in [knowledgebase](https://www.knowledgebase.com).
+#
 
-<Info>
-`Context is key`: Providing context through user input and leveraging a comprehensive knowledge base ensures that the AI's responses are relevant, accurate, and aligned with your specific use case or industry.
-</Info>
-#
 #### Why Context Matters
 
 1. **Improved Accuracy**: Context helps the AI understand the nuances of your query.
 2. **Relevance**: With proper context, the AI tailors its answers to your specific situation.
 3. **Efficiency**: Clear context and a robust knowledge base reduce the need for follow-up questions.
 4. **Personalization**: The more context available, the more personalized the AI's responses become.
-
+#
 #### Providing Effective Context
 
-- **Be Specific**: Clearly define the problem, audience, and desired outcome.
-- **Leverage the Knowledge Base**: GlowStudio.ai's built-in knowledge base provides a foundational layer of information, ensuring consistent and accurate responses without requiring repetitive input from users.
-- **Set Boundaries**: Inform the AI about any limitations or constraints.
-- **Define Roles**: If applicable, specify the role the AI should assume.
-
+- **Be Specific**: Clearly define the problem, audience, and desired outcome to keep responses relevant and contextually driven.
+- **Leverage the Knowledge Base**: GlowStudio's knowledge base provides a layer of information on top of the models training data, ensuring consistent and accurate responses without requiring repetitive input from users. 
+- **Set Boundaries**: Inform the AI about any limitations or constraints. This ensures the model always keeps to its task and context.
+- **Define Roles**: Specify the role or persona the AI should adopt for more contextual interactions.
+#
 <Warning>
-While more context is generally better, focus on details that directly impact the task at hand. The knowledge base handles much of the background information automatically.
+while more context is generally better, but avoid unnecessary details. Focus on details that directly impact the model’s task.
 </Warning>
+#
+**Example using contextually driven prompt engineering:**
 
-**Example:**
+<Accordion title="E-commerce wine store">
+```markdown
+You are an AI customer support agent for an e-commerce wine store. Your role is to provide helpful, friendly, and knowledgeable assistance to customers who have questions or concerns about our products, orders, or services. Always maintain a professional and courteous demeanor.
 
-<CodeGroup>
-```markdown 
-You are assisting customers of GreenTech Solutions, a company specializing in renewable energy products for homeowners. 
+Here is the important information about our wine store:
+<wine_store_info>
+{{WINE_STORE_INFO}}
+</wine_store_info>
 
-Use the knowledge base to access our product catalog, technical specifications, and FAQs. 
+Guidelines for customer interaction:
+1. Always greet the customer politely and thank them for contacting our support.
+2. Address the customer's concerns or questions promptly and accurately.
+3. Use the information provided in the wine store info to answer queries. If you don't have the information to answer a specific question, politely inform the customer that you'll need to check with a human colleague and offer to follow up via email.
+4. Recommend wines based on customer preferences, but avoid making health claims or giving medical advice.
+5. Be knowledgeable about wine terminology and be prepared to explain it in simple terms if needed.
+6. If a customer seems dissatisfied, empathize with their concerns and offer solutions when possible.
+7. Promote any current deals or special offers that might be relevant to the customer's inquiry.
+8. End each interaction by asking if there's anything else you can help with.
 
-Your role is to provide accurate information about our products, help customers choose the right solutions, and address common concerns about transitioning to renewable energy.
+When responding to a customer query, follow these steps:
+1. Carefully read and understand the customer's question or concern.
+2. If necessary, ask for clarification to ensure you fully understand the query.
+3. Provide a clear, concise, and accurate response based on the information in the wine store info.
+4. If appropriate, offer additional relevant information or suggestions.
+
+Here is the customer's query:
+<customer_query>
+{{CUSTOMER_QUERY}}
+</customer_query>
+
+Please provide your response to the customer query in the following format:
+<response>
+[Your response here, following the guidelines and steps outlined above]
+</response>
+
+Remember to maintain a friendly, helpful tone throughout your response and to use the information provided in the wine store info to accurately answer the customer's query.
 ```
-</CodeGroup>  
+</Accordion>  
 
-### Step 3: Implement Chain of Thought Reasoning 
+
+
+#
+
+## Step 3: Implement Chain of Thought Reasoning 
 #
   
 
