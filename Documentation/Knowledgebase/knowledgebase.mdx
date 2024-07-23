@@ -1,0 +1,149 @@
+---
+title: 'Knowledgebase'
+description: 'Docs explaining how to use the kb in glowstudio effectively.'
+---
+
+
+# What is a Knowledge Base? 
+
+  
+
+A Knowledge Base is a repository of information that your AI agents use to provide accurate and relevant responses to user queries. This repository can include documents, FAQs, manuals, and other structured data. The system utilizes retrieval augmented generation (RAG), which extracts information from a vector database. Want to learn more? Check this article: …................ 
+
+  
+
+# What is a RAG System? 
+
+  
+
+The RAG system integrates two powerful components: 
+
+- **Retrieval:** Searches the Knowledge Base to find relevant information. 
+
+- **Augmented Generation:** Uses the retrieved information to generate precise and contextually accurate responses using one of the LLMs available in Glowstudio. 
+
+  
+
+## Setting Up the Knowledge Base 
+
+  
+
+<Tabs> 
+
+  <Tab title="Step 1: Preparing Data"> 
+
+    Organize your data into easily accessible documents. These documents should be categorized and have clear labeling to facilitate efficient retrieval. Having it well organized will also make it easy for you or your client to find the right document when adding or removing knowledge from the agent. 
+
+  
+
+    - **Categorize Your Data:** Group similar information together. For instance, keep all FAQs in one folder and user manuals in another. 
+
+    - **Label Clearly:** Use descriptive titles for your documents so they can be easily identified at a glance. 
+
+    <Tip>Large language models read text well in markdown formatting. We recommend formatting your documents accordingly.</Tip> 
+
+  </Tab> 
+
+  <Tab title="Step 2: Adding Data to the Knowledge Base"> 
+
+    - **Adding as Text:** Write directly in the text editor. 
+
+    - **Uploading Files:** Upload documents via the Knowledge section of the agent. Supported formats include .txt, .pdf, .docx, .doc, .csv, .xlsx. 
+
+    - **Using the Scraper:** Use the built-in scraper to add data from URLs or sitemaps. 
+
+  </Tab> 
+
+  <Tab title="Step 3: Adding Descriptions and Tags"> 
+
+    For the retrieval step to work efficiently, the LLM needs as much context as possible. This ensures effective retrieval of chunks with a high probability of being relevant to the user's question. 
+
+    - **Descriptions:** Provide a brief summary of the document's content. 
+
+    - **Tags:** Add relevant keywords that describe the document’s main topics. 
+
+    <Info>A chunk is a segment of text or data that the system uses to search for relevant information. Think of it as a smaller, digestible piece of your larger document that can be independently retrieved and understood.</Info> 
+
+  </Tab> 
+
+  <Tab title="Step 4: Structuring the Knowledge Base"> 
+
+    Ensure your documents are well-structured. Use headings, subheadings, and bullet points to make the information easily searchable. Example: 
+
+    ```markdown 
+
+    # Example Document 
+
+  
+
+    ## Section 1: Introduction 
+
+    - Overview of the topic 
+
+    - Key points to remember 
+
+  
+
+    ## Section 2: Details 
+
+    - In-depth explanation 
+
+    - Examples and case studies 
+
+  
+
+    ## Section 3: Conclusion 
+
+    - Summary of key points 
+
+    - Next steps or recommendations 
+
+    ``` 
+
+  </Tab> 
+
+  <Tab title="Step 5: Adding the Prompt Similarity Step (Advanced)"> 
+
+    This prompt is used to generate search tags for the similarity search step so that the chunks retrieved are as relevant as possible to the user's question. The prompt should clearly define the LLMs role, task, and should give examples on what the output should look like for efficient retrieval from the database: 
+
+    ```markdown 
+
+    You are an advanced AI model tasked with generating relevant keywords for a similarity search process to a vector database. Use the information from the chat history to create accurate and relevant keywords. 
+
+  
+
+    Variables with context: 
+
+    chat_history: {chat_history} 
+
+  
+
+    Steps: 
+
+    1. Analyze the Chat History and Context: 
+
+       - Thoroughly review the conversation history. 
+
+       - Understand the main topics, subjects, and themes discussed. 
+
+  
+
+    2. Identify Main Themes, Topics, and Keywords: 
+
+       - Extract significant themes and subjects from the conversation. 
+
+       - Identify important keywords that are relevant to the content and purpose of the chat. 
+
+  
+
+    3. Generate a List of Keywords: 
+
+       - Create a comprehensive list of keywords that accurately represent the content and intent of the conversation. 
+
+       - Ensure the keywords are specific and relevant to provide the best possible search results. 
+
+    ``` 
+
+  </Tab> 
+
+</Tabs> 
