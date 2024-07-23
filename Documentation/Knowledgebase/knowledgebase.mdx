@@ -1,149 +1,160 @@
 ---
-title: 'Knowledgebase'
-description: 'Docs explaining how to use the kb in glowstudio effectively.'
+title: 'Knowledge base'
+description: 'How to use the kb in glowstudio.'
 ---
 
 
-# What is a Knowledge Base? 
+<img class="rounded-md" src="https://i.imgur.com/0uxdi0T.jpeg
+" width="600"></img>
+- The knoweldge base interface
+
+#
+## What is a Knowledge Base? 
 
   
 
-A Knowledge Base is a repository of information that your AI agents use to provide accurate and relevant responses to user queries. This repository can include documents, FAQs, manuals, and other structured data. The system utilizes retrieval augmented generation (RAG), which extracts information from a vector database. Want to learn more? Check this article: …................ 
+A Knowledge Base is a repository of information that your AI agents use to retrieve accurate and relevant responses to user queries. This repository can include documents, FAQs, manuals, and other structured data. The system utilizes retrieval augmented generation (RAG), which extracts information from a vector database. Want to learn more? Check this article: [Here](https://medium.com/@sahin.samia/what-is-retrieval-augmented-generation-rag-in-llm-and-how-it-works-a8c79e35a172)
 
-  
+  #
 
-# What is a RAG System? 
+## What is a RAG System? 
 
-  
+  #
 
-The RAG system integrates two powerful components: 
+The RAG system combines two powerful components that ensures your agents deliver highly accurate and contextually relevant responses: 
 
-- **Retrieval:** Searches the Knowledge Base to find relevant information. 
+>**Retrieval:** Searches the Knowledge Base to find relevant information. 
 
-- **Augmented Generation:** Uses the retrieved information to generate precise and contextually accurate responses using one of the LLMs available in Glowstudio. 
+> **Augmented Generation:** Uses the retrieved information to generate precise and contextually accurate responses using one of the LLMs available in Glowstudio. 
+
+#
+<Accordion title="Example RAG Architecture"><img class="rounded-md" src="https://i.imgur.com/qoytE43.png
+" width="600"></img></Accordion>
 
-  
+#
+# Crafting Your Agent's Knowledge Base
 
-## Setting Up the Knowledge Base 
+Building a robust knowledge base is crucial to ensure your agent has up to date information and gives responses that meets your clients needs. Follow these steps to create a well-structured and efficient knowledge base:
 
-  
+<Steps>
+  <Step title="Preparing Data">
+    Organize your data into easily accessible documents. This step is fundamental for efficient information retrieval.
+#
+    - **Label Your Documents:** Organzation is key, both for yourself and your client. This ensures easy navigation and .For example:
+      - FAQs in a "Frequently Asked Questions" 
+      - User manuals in a "Product Documentation"
+      - Company policies in a "Corporate Guidelines"
+#
+    - **Label Clearly:** Use descriptive titles for your documents. For instance:
+      - "Product-X-User-Manual-v2.1.md"
+      - "Customer-Return-Policy-2023.md"
+#
+    <Tip>
+      Format your documents in markdown (.md) for optimal readability by large language models. This ensures better <Tooltip tip="The process of extracting relevant information from the knowledge base">information retrieval</Tooltip> and processing.
+    </Tip>
+    #
+  </Step>
 
-<Tabs> 
+  <Step title="Adding Data to the Knowledge Base">
+    Our platform offers multiple methods to populate your knowledge base:
 
-  <Tab title="Step 1: Preparing Data"> 
+    1. **Direct Text Entry:**
+       - Navigate to the "Knowledge" section of your agent
+       - Click on "Add New Document"
+       - Write or paste your content directly into the text editor
 
-    Organize your data into easily accessible documents. These documents should be categorized and have clear labeling to facilitate efficient retrieval. Having it well organized will also make it easy for you or your client to find the right document when adding or removing knowledge from the agent. 
+    2. **File Upload:**
+       - In the "Knowledge" section, select "Upload File"
+       - Choose your document(s) from your local system
+       - Supported formats: .txt, .pdf, .docx, .doc, .csv, .xlsx
 
-  
+    3. **Web Scraping:**
+       - Use our built-in <Tooltip tip="A tool that automatically extracts data from websites">scraper</Tooltip> to add data from websites
+       - Go to "Add Data" > "Web Scraper"
+       - Enter the URL or sitemap you want to scrape
+       - Select the specific pages or sections to include
 
-    - **Categorize Your Data:** Group similar information together. For instance, keep all FAQs in one folder and user manuals in another. 
+    <Note>
+      When using the web scraper, ensure you have the necessary permissions to use the content from the target website.
+    </Note>
+  </Step>
 
-    - **Label Clearly:** Use descriptive titles for your documents so they can be easily identified at a glance. 
+  <Step title="Adding Descriptions and Tags">
+    Enhance your knowledge base's searchability by adding context to each document:
 
-    <Tip>Large language models read text well in markdown formatting. We recommend formatting your documents accordingly.</Tip> 
+    - **Descriptions:** Write a brief (2-3 sentences) summary of the document's content. For example:
+      "This document outlines our company's customer return policy, including eligibility criteria, timeframes, and refund processes."
 
-  </Tab> 
+    - **Tags:** Add relevant keywords that describe the document's main topics. For instance:
+      #customer-service, #returns, #refunds, #policy
 
-  <Tab title="Step 2: Adding Data to the Knowledge Base"> 
+    <Info>
+      These descriptions and tags help our <Tooltip tip="AI systems that use machine learning algorithms to process and analyze text">Natural Language Processing (NLP) models</Tooltip> understand the context and relevance of each document, improving the accuracy of information retrieval.
+    </Info>
+  </Step>
 
-    - **Adding as Text:** Write directly in the text editor. 
+  <Step title="Structuring the Knowledge Base">
+    Proper document structure improves readability for both humans and AI. Use a clear hierarchy with headings, subheadings, and bullet points.
 
-    - **Uploading Files:** Upload documents via the Knowledge section of the agent. Supported formats include .txt, .pdf, .docx, .doc, .csv, .xlsx. 
+    Example structure:
 
-    - **Using the Scraper:** Use the built-in scraper to add data from URLs or sitemaps. 
+    ```markdown
+    # Product X User Manual
 
-  </Tab> 
+    ## 1. Introduction
+    - Overview of Product X
+    - Key features and benefits
 
-  <Tab title="Step 3: Adding Descriptions and Tags"> 
+    ## 2. Getting Started
+    - Unboxing and setup
+    - Initial configuration
 
-    For the retrieval step to work efficiently, the LLM needs as much context as possible. This ensures effective retrieval of chunks with a high probability of being relevant to the user's question. 
+    ## 3. Basic Operations
+    - Powering on/off
+    - Navigating the user interface
 
-    - **Descriptions:** Provide a brief summary of the document's content. 
-
-    - **Tags:** Add relevant keywords that describe the document’s main topics. 
-
-    <Info>A chunk is a segment of text or data that the system uses to search for relevant information. Think of it as a smaller, digestible piece of your larger document that can be independently retrieved and understood.</Info> 
-
-  </Tab> 
-
-  <Tab title="Step 4: Structuring the Knowledge Base"> 
-
-    Ensure your documents are well-structured. Use headings, subheadings, and bullet points to make the information easily searchable. Example: 
-
-    ```markdown 
-
-    # Example Document 
-
-  
-
-    ## Section 1: Introduction 
-
-    - Overview of the topic 
-
-    - Key points to remember 
-
-  
-
-    ## Section 2: Details 
-
-    - In-depth explanation 
-
-    - Examples and case studies 
-
-  
-
-    ## Section 3: Conclusion 
-
-    - Summary of key points 
-
-    - Next steps or recommendations 
-
-    ``` 
-
-  </Tab> 
-
-  <Tab title="Step 5: Adding the Prompt Similarity Step (Advanced)"> 
-
-    This prompt is used to generate search tags for the similarity search step so that the chunks retrieved are as relevant as possible to the user's question. The prompt should clearly define the LLMs role, task, and should give examples on what the output should look like for efficient retrieval from the database: 
-
-    ```markdown 
-
-    You are an advanced AI model tasked with generating relevant keywords for a similarity search process to a vector database. Use the information from the chat history to create accurate and relevant keywords. 
-
-  
-
-    Variables with context: 
-
-    chat_history: {chat_history} 
-
-  
-
-    Steps: 
-
-    1. Analyze the Chat History and Context: 
-
-       - Thoroughly review the conversation history. 
-
-       - Understand the main topics, subjects, and themes discussed. 
-
-  
-
-    2. Identify Main Themes, Topics, and Keywords: 
-
-       - Extract significant themes and subjects from the conversation. 
-
-       - Identify important keywords that are relevant to the content and purpose of the chat. 
-
-  
-
-    3. Generate a List of Keywords: 
-
-       - Create a comprehensive list of keywords that accurately represent the content and intent of the conversation. 
-
-       - Ensure the keywords are specific and relevant to provide the best possible search results. 
-
-    ``` 
-
-  </Tab> 
-
-</Tabs> 
+    ## 4. Advanced Features
+    - Custom settings
+    - Integration with other devices
+
+    ## 5. Troubleshooting
+    - Common issues and solutions
+    - Contacting support
+    ```
+
+    <Tip>
+      Consistent structure across documents helps the AI agent quickly locate and extract relevant information, leading to more accurate and context-aware responses.
+    </Tip>
+  </Step>
+
+  <Step title="Implementing Advanced Retrieval Techniques">
+    To further enhance your AI agent's ability to find and use relevant information, implement our advanced <Tooltip tip="A technique that generates search keywords based on the conversation context">Prompt Similarity Step</Tooltip>:
+
+    1. Navigate to your agent's settings
+    2. Go to "Advanced Configuration" > "Retrieval Settings"
+    3. Enable "Prompt Similarity Step"
+    4. Customize the prompt if needed (we provide a default optimized prompt)
+
+    Here's an example of how the prompt works:
+
+    ```markdown
+    You are an advanced AI tasked with generating relevant search keywords. Use the chat history to create accurate and relevant keywords for searching our knowledge base.
+
+    Variables:
+    chat_history: {chat_history}
+
+    Steps:
+    1. Analyze the chat history and context
+    2. Identify main themes, topics, and keywords
+    3. Generate a list of specific, relevant keywords for the search
+
+    Output your list of keywords, separated by commas.
+    ```
+
+    <Info>
+      This advanced technique helps bridge the gap between user queries and your knowledge base content, resulting in more precise and contextually relevant responses from your AI agent.
+    </Info>
+  </Step>
+</Steps>
+
+By following these steps, you'll create a well-structured, easily searchable knowledge base that significantly enhances your AI agent's capabilities. Remember, the quality and organization of your knowledge base directly impact your agent's performance, so invest time in curating and structuring your information effectively.
