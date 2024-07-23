@@ -35,70 +35,89 @@ The RAG system combines two powerful components that ensures your agents deliver
 # Crafting Your Agent's Knowledge Base
 
 Building a robust knowledge base is crucial to ensure your agent has up to date information and gives responses that meets your clients needs. Follow these steps to create a well-structured and efficient knowledge base:
-
+#
 <Steps>
   <Step title="Preparing Data">
-    Organize your data into easily accessible documents. This step is fundamental for efficient information retrieval.
+
 #
-    - **Label Your Documents:** Organzation is key, both for yourself and your client. This ensures easy navigation and .For example:
-      - FAQs in a "Frequently Asked Questions" 
-      - User manuals in a "Product Documentation"
-      - Company policies in a "Corporate Guidelines"
+    > **Label Your Documents:** Organzation is key, both for yourself and your client (as your client might get access to the documents, whether you permit them or not). This ensures easy navigation and understanding of the documents. For example:
+    ```
+      - FAQs in a "Frequently Asked Questions" Doc.
+      - User manuals in a "Product Documentation" Doc.
+      - Company policies in a "Corporate Guidelines" Doc.
+    ```
 #
-    - **Label Clearly:** Use descriptive titles for your documents. For instance:
-      - "Product-X-User-Manual-v2.1.md"
-      - "Customer-Return-Policy-2023.md"
+
 #
     <Tip>
-      Format your documents in markdown (.md) for optimal readability by large language models. This ensures better <Tooltip tip="The process of extracting relevant information from the knowledge base">information retrieval</Tooltip> and processing.
+      Large language models read text well in **markdown** or **XML** formatting. We recommend formatting your documents accordingly. This improves the efficiency of <Tooltip tip="The process of extracting relevant information from the knowledge base">information retrieval</Tooltip> as the model requires less text reformatting.
     </Tip>
+    #
     #
   </Step>
 
   <Step title="Adding Data to the Knowledge Base">
-    Our platform offers multiple methods to populate your knowledge base:
+    Glowstudio offers multiple methods to populate your knowledge base with data:
+
+#
 
     1. **Direct Text Entry:**
-       - Navigate to the "Knowledge" section of your agent
-       - Click on "Add New Document"
-       - Write or paste your content directly into the text editor
+       - Navigate to the `Knowledge` section of your agent
+       - Click on `Add source` in the upper right.
+       - Write or paste your content directly into the `Document Content` input field.
+
+       <img class="rounded-md" src="https://i.imgur.com/64rrgFS.png" width="300"></img>
+
 
     2. **File Upload:**
-       - In the "Knowledge" section, select "Upload File"
+       - In the `add data source` window, select "File"
        - Choose your document(s) from your local system
        - Supported formats: .txt, .pdf, .docx, .doc, .csv, .xlsx
 
-    3. **Web Scraping:**
-       - Use our built-in <Tooltip tip="A tool that automatically extracts data from websites">scraper</Tooltip> to add data from websites
-       - Go to "Add Data" > "Web Scraper"
-       - Enter the URL or sitemap you want to scrape
-       - Select the specific pages or sections to include
 
-    <Note>
-      When using the web scraper, ensure you have the necessary permissions to use the content from the target website.
-    </Note>
+       <img class="rounded-md" src="https://i.imgur.com/DFCni0k.png" width="300"></img>
+
+    3. **URL:**
+       - Use our built-in <Tooltip tip="A tool that automatically extracts data from websites">URL scraper</Tooltip> to add data from websites
+       - In the `add data source` window, select "URL"
+       - Enter the URL or sitemap you want to scrape. Remember to press `fetch` before scraping, to retrieve and look through the sitemap from the xml file.
+       - When the ULRs are scraped and added they will be saved as individual documents. **We recommend** scrolling through each and removing unwanted information.
+       
+       <img class="rounded-md" src="https://i.imgur.com/cmdxgDR.png" width="300"></img>
+
+    <Warning>
+      Using the URL scraper will use X credits per page. Please ensure your account has sufficient credits.
+    </Warning>
+    #
+    
   </Step>
 
   <Step title="Adding Descriptions and Tags">
-    Enhance your knowledge base's searchability by adding context to each document:
-
-    - **Descriptions:** Write a brief (2-3 sentences) summary of the document's content. For example:
+    Each of the text ingestion methods explained above all include the following fields to enhance your knowledge base's searchability and efficiency:
+#
+    - **Documenmt Description:** Write a brief (2-3 sentences) summary of the document's content. For example:
+    ```
       "This document outlines our company's customer return policy, including eligibility criteria, timeframes, and refund processes."
-
-    - **Tags:** Add relevant keywords that describe the document's main topics. For instance:
-      #customer-service, #returns, #refunds, #policy
-
+    ```
+    #
+    - **Tags:** Add relevant `keywords` that describe the document's main topics. For instance:
+    
+    ```
+      customer-service, returns, refunds, policy
+    ```  
+      #
     <Info>
-      These descriptions and tags help our <Tooltip tip="AI systems that use machine learning algorithms to process and analyze text">Natural Language Processing (NLP) models</Tooltip> understand the context and relevance of each document, improving the accuracy of information retrieval.
+      These descriptions and tags help the LLM  understand the context and relevance of each document, improving the accuracy of information retrieval.
     </Info>
+    #
   </Step>
 
-  <Step title="Structuring the Knowledge Base">
-    Proper document structure improves readability for both humans and AI. Use a clear hierarchy with headings, subheadings, and bullet points.
+  <Step title="Structuring the Knowledge Base documents">
+    Proper document structure improves readability for both humans and AI (GPT models from OpenAI read markdown best, while [anthropic models](https://docs.anthropic.com/en/docs/build-with-claude/prompt-engineering/use-xml-tags) read XML). We recommend using a clear hierarchy with headings, subheadings, and bullet points.
 
-    Example structure:
-
-    ```markdown
+   
+<CodeGroup>
+    ```markdown Example structure using markdown:
     # Product X User Manual
 
     ## 1. Introduction
@@ -121,14 +140,68 @@ Building a robust knowledge base is crucial to ensure your agent has up to date 
     - Common issues and solutions
     - Contacting support
     ```
+    ```markdown Example using XML tag formatting:
+    <ProductManual>
+    <Title>Product X User Manual</Title>
+    <Section>
+        <Title>1. Introduction</Title>
+        <Subsection>Overview of Product X</Subsection>
+        <Subsection>Key features and benefits</Subsection>
+    </Section>
+    <Section>
+        <Title>2. Getting Started</Title>
+        <Subsection>Unboxing and setup</Subsection>
+        <Subsection>Initial configuration</Subsection>
+    </Section>
+    <Section>
+        <Title>3. Basic Operations</Title>
+        <Subsection>Powering on/off</Subsection>
+        <Subsection>Navigating the user interface</Subsection>
+    </Section>
+    <Section>
+        <Title>4. Advanced Features</Title>
+        <Subsection>Custom settings</Subsection>
+        <Subsection>Integration with other devices</Subsection>
+    </Section>
+    <Section>
+        <Title>5. Troubleshooting</Title>
+        <Subsection>Common issues and solutions</Subsection>
+        <Subsection>Contacting support</Subsection>
+    </Section>
+</ProductManual>
+    ``` 
+
+   </CodeGroup> 
 
     <Tip>
-      Consistent structure across documents helps the AI agent quickly locate and extract relevant information, leading to more accurate and context-aware responses.
+      Consistent structure across documents helps the AI agent quickly locate and extract relevant information, leading to more accurate and context-aware responses. **To quickly reformat documents, feed the text to an LLM**.
     </Tip>
   </Step>
 
-  <Step title="Implementing Advanced Retrieval Techniques">
-    To further enhance your AI agent's ability to find and use relevant information, implement our advanced <Tooltip tip="A technique that generates search keywords based on the conversation context">Prompt Similarity Step</Tooltip>:
+  
+  <Step title="Adjusting the KB settings">
+  #
+<img class="rounded-md" src="https://i.imgur.com/johowZa.png" width="400"></img>
+
+
+
+**Adjusting chunks retrieved:**
+
+The `Max Chunks Retrievable` slider controls how many pieces of information (<Tooltip tip="Segments of text or data that the model processes in one interaction. Each chunk can consist of several sentences or paragraphs, depending on the size of the data being processed. The model retrieves and processes these chunks sequentially to generate comprehensive and accurate responses.">Chunks</Tooltip>) the LLM can retrieve in one interaction. You can adjust it anywhere between 1 and 10. **We recommend** keeping it at around 3-4 depending on <Tooltip tip="It's recommended to increase the chunk limit as your knowledge base grows, especially when the document count exceeds 10, setting it to 6 chunks. More chunks allow the model to process more information at once, potentially improving the relevance and quality of its responses. This adjustment enables the AI to analyze a broader context, leading to more accurate and insightful answers.">amount of documents</Tooltip> in the knowledgebase.
+
+
+
+When you adjust the slider, you change the maximum number of the model will retrieve. If you set it to a higher number, the model can pull more information at once, which might be useful for complex queries. However, be mindful that some models have a lower <Tooltip tip="The input limit is the maximum amount of data or text the AI can process in a single interaction. This limit is determined by the model's context window, which is the span of text the model can consider at once. Exceeding this limit can result in truncated or incomplete responses.">Input limit</Tooltip>, which means they can't process as much information at once and may require you to set a lower value on the slider.
+#
+<Warning>
+Setting a higher chunk limit will consume more [credits](credits), as more <Tooltip tip="Tokens are units of text the AI processes. They can be as short as one character or as long as one word.">Tokens</Tooltip> are units of text the AI processes. They can be as short as one character or as long as one word. are being processed. Each chunk corresponds to a set of tokens, and increasing the number of chunks means more tokens are retrieved, leading to higher credit usage.
+</Warning>
+
+
+#
+**Search similarity prompt:**
+
+    To further enhance your AI agent's ability to find and use relevant information, use a prompt for the <Tooltip tip="A technique that generates search keywords based on the conversation context">Search Similarity Step</Tooltip>:
 
     1. Navigate to your agent's settings
     2. Go to "Advanced Configuration" > "Retrieval Settings"
@@ -157,4 +230,10 @@ Building a robust knowledge base is crucial to ensure your agent has up to date 
   </Step>
 </Steps>
 
+
+### UI-engine and knowledgebase
+
+
+
+#
 By following these steps, you'll create a well-structured, easily searchable knowledge base that significantly enhances your AI agent's capabilities. Remember, the quality and organization of your knowledge base directly impact your agent's performance, so invest time in curating and structuring your information effectively.
