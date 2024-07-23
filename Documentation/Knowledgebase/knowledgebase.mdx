@@ -194,19 +194,23 @@ The `Max Chunks Retrievable` slider controls how many pieces of information (<To
 When you adjust the slider, you change the maximum number of the model will retrieve. If you set it to a higher number, the model can pull more information at once, which might be useful for complex queries. However, be mindful that some models have a lower <Tooltip tip="The input limit is the maximum amount of data or text the AI can process in a single interaction. This limit is determined by the model's context window, which is the span of text the model can consider at once. Exceeding this limit can result in truncated or incomplete responses.">Input limit</Tooltip>, which means they can't process as much information at once and may require you to set a lower value on the slider.
 #
 <Warning>
-Setting a higher chunk limit will consume more [credits](credits), as more <Tooltip tip="Tokens are units of text the AI processes. They can be as short as one character or as long as one word.">Tokens</Tooltip> are units of text the AI processes. They can be as short as one character or as long as one word. are being processed. Each chunk corresponds to a set of tokens, and increasing the number of chunks means more tokens are retrieved, leading to higher credit usage.
+Setting a higher chunk limit will consume more [credits](credits), as more <Tooltip tip="Tokens are units of text the AI processes. They can be as short as one character or as long as one word.">Tokens</Tooltip> are being processed. Each chunk corresponds to a set of tokens, and increasing the number of chunks means more tokens are retrieved, leading to higher credit usage.
 </Warning>
 
 
 #
 **Search similarity prompt:**
 
-    To further enhance your AI agent's ability to find and use relevant information, use a prompt for the <Tooltip tip="A technique that generates search keywords based on the conversation context">Search Similarity Step</Tooltip>:
+    To further enhance your agent's ability to retrieve the most relevant information from the knowledge base, use a prompt for the <Tooltip tip="A technique that generates search keywords based on the conversation context">Search Similarity Step</Tooltip>:
 
-    1. Navigate to your agent's settings
-    2. Go to "Advanced Configuration" > "Retrieval Settings"
-    3. Enable "Prompt Similarity Step"
-    4. Customize the prompt if needed (we provide a default optimized prompt)
+    1. Navigate to your agent's `Knowledge` section
+    2. Go to the `gear` icon in upper right.
+    3. Write your prompt in the input field or use the provided example below!
+    4. Remember to include the `{chat_history}` vairable as it wont work without.
+    5. Press `Done` and test the knowledge base by using the `Preview KB` in the upper right.
+
+    
+    <img class="rounded-md" src="https://i.imgur.com/OUls8x7.png" width="500"></img>
 
     Here's an example of how the prompt works:
 
@@ -227,6 +231,25 @@ Setting a higher chunk limit will consume more [credits](credits), as more <Tool
     <Info>
       This advanced technique helps bridge the gap between user queries and your knowledge base content, resulting in more precise and contextually relevant responses from your AI agent.
     </Info>
+  </Step>
+  <Step title="Adding Descriptions and Tags">
+    Each of the text ingestion methods explained above all include the following fields to enhance your knowledge base's searchability and efficiency:
+#
+    - **Documenmt Description:** Write a brief (2-3 sentences) summary of the document's content. For example:
+    ```
+      "This document outlines our company's customer return policy, including eligibility criteria, timeframes, and refund processes."
+    ```
+    #
+    - **Tags:** Add relevant `keywords` that describe the document's main topics. For instance:
+    
+    ```
+      customer-service, returns, refunds, policy
+    ```  
+      #
+    <Info>
+      These descriptions and tags help the LLM  understand the context and relevance of each document, improving the accuracy of information retrieval.
+    </Info>
+    #
   </Step>
 </Steps>
 
