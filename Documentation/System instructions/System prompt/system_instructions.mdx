@@ -1,6 +1,6 @@
 ---
 title: 'Prompt Engineering Guide'
-description: 'Guide to effective prompt engineering in glowstudio'
+description: 'Guide to effective prompt engineering in glowstudio.'
 ---
 
 
@@ -10,8 +10,13 @@ description: 'Guide to effective prompt engineering in glowstudio'
   
 
 Prompt engineering is the art and science of crafting effective instructions for AI models, particularly Large Language Models (LLMs). A well-designed prompt can significantly enhance the quality, relevance, and safety of AI-generated responses. This guide will walk you through the key concepts and best practices in prompt engineering. 
+#
+> Screenshot of the prompt input field in glowstudio:
 
-  
+<img class="rounded-md" src="https://i.imgur.com/b8Z7gNS.jpeg
+" width="700"></img>  
+
+
 
 ### Key Concepts 
 
@@ -119,15 +124,15 @@ French: Je voudrais réserver une chambre d'hôtel.
 
 ### Formatting Your Prompt 
 
-  
+ # 
 
 <Tip> 
 
-Proper formatting can significantly improve the readability and effectiveness of your prompts. Consider using Markdown or XML tags to structure your prompts. 
+Proper formatting can significantly improve the readability and effectiveness of your prompts. Consider using Markdown or XML tags to structure your prompts. (GPT models read markdown and Anthropic models read XML)
 
 </Tip> 
 
-  
+  #
 
 Here are some formatting techniques: 
 
@@ -177,7 +182,7 @@ Clearly articulate the AI's role, personality, and primary goals. This sets the 
 
 
 Glowstudio agents are masters of personality, capable of adopting a wide range of tones and styles to suit your needs. Whether you want a casual chatbot or a professional assistant.
-
+#
 <Tip>
 **Experiment** with different personas to find the perfect fit for your audience or client. Try these options:
 - Set the tone to `slang` for a laid-back and fun personality that will resonate with many customers.
@@ -387,8 +392,8 @@ When deploying an AI agent for your clients, it's essential to define clear rest
 
 #
 
-
-
+### Guidelines for Setting Restrictions, Boundaries, and Specific Instructions
+#
 -   **Scope of Responses**: Clearly specifying the topics and areas the AI should address ensures that it remains focused on relevant subjects. This prevents the model from providing irrelevant or inappropriate information.
     
 -   **Information Sources**: Restricting the AI to use only verified and approved information from the knowledge base ensures consistency and reliability in the responses.
@@ -400,7 +405,7 @@ When deploying an AI agent for your clients, it's essential to define clear rest
 -   **Actions**: Glowstudio offers several possibilites for the AI to use actions. Define how the model should use the [UI Engine](#UI-Engine) and [Tools](Tools) in the system prompt (You can read more about implementing these in their respective docs). 
     
 
-##
+#
 
 
   
@@ -411,9 +416,9 @@ Defining clear restrictions is crucial for preventing the AI from engaging in po
 
 </Warning> 
 
-  
+  #
 
-**Example usage:** 
+>**Example usage:** 
 <Accordion title="">
 <CodeGroup>
 ```markdown E-commerce store
@@ -554,7 +559,7 @@ Repeat important instructions throughout the prompt to ensure the AI maintains c
 
 <Tip> 
 
-Reinforcing key instructions helps prevent the AI from "forgetting" important guidelines as the conversation progresses. 
+Reinforcing key instructions helps prevent the AI from "forgetting" important guidelines as the conversation progresses. This phenomenon is related to the **"caught in the middle"** effect, where crucial details can be lost or overlooked amidst ongoing interactions.
 
 </Tip> 
 
@@ -562,7 +567,8 @@ Reinforcing key instructions helps prevent the AI from "forgetting" important gu
 
 **Example:** 
 
-```markdown 
+<CodeGroup>
+```markdown Put this at the bottom of the prompt
 
 Remember: 
 
@@ -576,6 +582,54 @@ Remember:
 
 ``` 
 
+```markdown Example with reinforcement
+
+You are an AI assistant for an e-commerce store. Your task is to assist customers with product inquiries and make recommendations based on their needs. Use the following product catalog to inform your responses:
+
+<product_catalog>
+{{PRODUCT_CATALOG}}
+</product_catalog>
+
+When interacting with customers, follow these guidelines:
+
+Greet the customer politely and professionally.
+Carefully read and understand the customer's query.
+Provide accurate information about products from the catalog.
+If a specific product is mentioned, give details about its features, price, and availability.
+If the customer is looking for recommendations:
+a. Consider their stated preferences and needs.
+b. Suggest 2-3 relevant products from the catalog.
+c. Briefly explain why each recommendation suits their requirements.
+If a product is out of stock or unavailable, offer similar alternatives.
+Be concise but informative in your responses.
+Use a friendly and helpful tone throughout the interaction.
+If the customer's query is unclear, politely ask for clarification.
+Do not make up information about products not listed in the catalog.
+Format your response as follows:
+
+Begin with a greeting.
+Address the customer's query or provide recommendations.
+End with a polite closing and an offer for further assistance.
+Here is the customer's query:
+
+<customer_query>
+{{CUSTOMER_QUERY}}
+</customer_query>
+
+Provide your response to the customer query, following the guidelines above. Begin your response with <response> and end it with </response>.
+
+Remember to always:
+
+Greet the customer politely and professionally.
+Carefully read and understand the customer's query.
+Provide accurate information from the product catalog.
+Offer relevant recommendations based on the customer's needs.
+Maintain a friendly and helpful tone throughout the interaction.
+Be concise but informative.
+
+```
+
+</CodeGroup>
   
 #
 #
@@ -649,7 +703,7 @@ Here's an example of a prompt that incorporates both advanced techniques:
 
   
 
-    This is a life or death situation. Consider this when writing your response." 
+    This is a life or death situation. Its critical  your reponse is correct." 
 ```
   </CodeBlock> 
 
@@ -677,14 +731,16 @@ Here's an example of a prompt that incorporates both advanced techniques:
   
 
 ## Step 8: Iterate and Test 
-#
 
-Creating the best possible product for your client means continous refininig of the prompting based on their feedback.
+
+Creating the best possible product for your client involves continuously refining the prompts based on their feedback.
+
+
 #
 <Tip>**This is a nice opportunity for engaging with your cleint:** Listen to their feedback and improve the prompt free-of-charge. This not only fosters positive customer relationships, but also opens the door to upsell new features and integrations for their agent (e.g **increasing monthly retainer**). For more sales tips, visit our [Sales database](Sales-database)</Tip>
 
 #
-Steps for crafting the best possible prompt based on agents performance or user feedback. 
+Steps for crafting the best possible prompt based on agents performance or user feedback: 
 
   
 
@@ -730,34 +786,47 @@ Steps for crafting the best possible prompt based on agents performance or user 
 
   
 
-<CardGroup cols={2}> 
+<CardGroup cols={2}>
+  <Card
+    title="Anthropic Console Prompt Generator"
+    icon="wand-sparkles"
+    href="https://console.anthropic.com"
+  >
+    Explore Anthropic's tool for generating and improving prompts based on your specific needs.
+    
+    [Open Anthropic Console](https://console.anthropic.com)
+  </Card>
 
-  <Card title="Anthropic Console Prompt Generator" icon="magic-wand" href="https://console.anthropic.com"> 
+  <Card
+    title="OpenAI's Prompt Engineering Guide"
+    icon="book"
+    href="https://platform.openai.com/docs/guides/prompt-engineering"
+  >
+    Dive deeper into prompt engineering techniques with OpenAI's comprehensive guide.
+    
+    [Read OpenAI Guide](https://platform.openai.com/docs/guides/prompt-engineering)
+  </Card>
 
-    Explore Anthropic's tool for generating and improving prompts based on your specific needs. 
+  <Card
+    title="Prompt Engineering Best Practices"
+    icon="lightbulb"
+    href="https://www.promptingguide.ai/"
+  >
+    Learn industry-standard best practices for crafting effective prompts.
+    
+    [Explore Best Practices](https://www.promptingguide.ai/)
+  </Card>
 
-  </Card> 
-
-  <Card title="OpenAI's Prompt Engineering Guide" icon="book-open" href="https://platform.openai.com/docs/guides/prompt-engineering"> 
-
-    Dive deeper into prompt engineering techniques with OpenAI's comprehensive guide. 
-
-  </Card> 
-
-  <Card title="Prompt Engineering Research Paper" icon="microscope" href="https://arxiv.org/abs/2309.03409"> 
-
-    Read the latest research on advanced prompting techniques and their impact on AI performance. 
-
-  </Card> 
-
-  <Card title="LangChain Documentation" icon="link" href="https://python.langchain.com/en/latest/modules/prompts/prompt_templates.html"> 
-
-    Learn about prompt templates and chaining in the LangChain framework. [here](www.here.com)
-
-  </Card> 
-
-</CardGroup> 
-
+  <Card
+    title="AI Prompt Marketplace"
+    icon="link"
+    href="https://promptbase.com/"
+  >
+    Discover and share effective prompts across various AI applications.
+    
+    [Visit Prompt Marketplace](https://promptbase.com/)
+  </Card>
+</CardGroup>
   
 
 ## Conclusion 
