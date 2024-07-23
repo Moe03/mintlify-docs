@@ -95,12 +95,12 @@ Building a robust knowledge base is crucial to ensure your agent has up to date 
   <Step title="Adding Descriptions and Tags">
     Each of the text ingestion methods explained above all include the following fields to enhance your knowledge base's searchability and efficiency:
 #
-    - **Documenmt Description:** Write a brief (2-3 sentences) summary of the document's content. For example:
+  >**Document Description:** Write a brief (2-3 sentences) summary of the document's content. For example:
     ```
       "This document outlines our company's customer return policy, including eligibility criteria, timeframes, and refund processes."
     ```
-    #
-    - **Tags:** Add relevant `keywords` that describe the document's main topics. For instance:
+  #
+  > **Tags:** Add relevant `keywords` that describe the document's main topics. For instance:
     
     ```
       customer-service, returns, refunds, policy
@@ -232,24 +232,27 @@ Setting a higher chunk limit will consume more [credits](credits), as more <Tool
       This advanced technique helps bridge the gap between user queries and your knowledge base content, resulting in more precise and contextually relevant responses from your AI agent.
     </Info>
   </Step>
-  <Step title="Adding Descriptions and Tags">
-    Each of the text ingestion methods explained above all include the following fields to enhance your knowledge base's searchability and efficiency:
-#
-    - **Documenmt Description:** Write a brief (2-3 sentences) summary of the document's content. For example:
-    ```
-      "This document outlines our company's customer return policy, including eligibility criteria, timeframes, and refund processes."
-    ```
-    #
-    - **Tags:** Add relevant `keywords` that describe the document's main topics. For instance:
+  <Step title="Using preview KB">
     
-    ```
-      customer-service, returns, refunds, policy
-    ```  
-      #
-    <Info>
-      These descriptions and tags help the LLM  understand the context and relevance of each document, improving the accuracy of information retrieval.
-    </Info>
-    #
+  #  
+    
+
+    You can easily test the knowledge base using the `Preview KB` feature built right into the knowledge tab of you agent. This lets you try out different `chunking options` and play around with different [AI models](AImodels). 
+#
+    >You can find it by navigating to the `knowledge` tab of your agent and look for **Preview KB** in the upper right.
+
+
+  #
+    <Accordion title="Example usage"> 
+    <img class="rounded-md" src="https://i.imgur.com/EixOM8I.png" width="300"></img>
+    </Accordion>
+#
+    **Interpreting the debug**
+
+   <img class="rounded-md" src="https://i.imgur.com/H1H5gW6.png" width="300"></img> 
+   
+   
+
   </Step>
 </Steps>
 
